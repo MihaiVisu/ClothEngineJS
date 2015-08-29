@@ -1,0 +1,19 @@
+{
+  "name": "cloth_engine",
+  "version": "1.0.0",
+  "description": "This contains the necessary libraries to build the project",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mihaivisu:mihaiv.94@github.com/MihaiVisu/ClothEngineJS.git"
+  },
+  "author": "Mihai Visuian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MihaiVisu/ClothEngineJS/issues"
+  },
+  "homepage": "https://github.com/MihaiVisu/ClothEngineJS#readme"
+}

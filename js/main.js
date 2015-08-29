@@ -1,0 +1,5 @@
+var Cloth = Cloth || {};
+
+$(function() {
+
+})();

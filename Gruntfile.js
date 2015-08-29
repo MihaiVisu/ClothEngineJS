@@ -18,7 +18,6 @@ module.exports = function (grunt) {
                 files: ['/less/*.less'],
                 tasks: ['less']
             }
-
         },
         uglify: {
             options: {
@@ -26,7 +25,7 @@ module.exports = function (grunt) {
             },
             gui: {
                 files: {
-                    'frontend/static/frontend/generated/js/project_gui.min.js': [
+                    '/generated/js/project_gui.min.js': [
                         '/js/*.js',
                         '/js/Cloth/*.js'
                     ]
@@ -34,7 +33,7 @@ module.exports = function (grunt) {
             },
             libs: {
                 files: {
-                    'frontend/static/frontend/generated/js/project_libs.min.js': [
+                    '/generated/js/project_libs.min.js': [
                         'node_modules/jquery/dist/jquery.min.js'
                     ]
                 }
@@ -52,7 +51,7 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'frontend/static/frontend/generated/css/project_gui.min.css': [
+                    '/generated/css/project_gui.min.css': [
                         '/less/*.less'
                     ]
                 }

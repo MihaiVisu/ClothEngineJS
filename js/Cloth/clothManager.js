@@ -1,5 +1,5 @@
-var Cloth = Cloth || {};
+var ClothEngine = ClothEngine || {};
 
-Cloth.clothManager = function () {
+ClothEngine.clothManager = function () {
     "use strict";
 };

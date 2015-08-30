@@ -1,12 +1,12 @@
-var Cloth = Cloth || {};
+var ClothEngine = ClothEngine || {};
 
-Cloth.Line.prototype = function (p1, p2) {
+ClothEngine.Line.prototype = function (p1, p2) {
     'use strict';
 
     this.p1 = p1;
     this.p2 = p2;
 
-    this.length = Cloth.config.spacing;
+    this.length = ClothEngine.config.spacing;
 
     this.resolve = function () {
         var diff_x = this.p1.x - this.p2.x,
@@ -16,7 +16,7 @@ Cloth.Line.prototype = function (p1, p2) {
             px = diff_x * diff * 0.5,
             py = diff_y * diff * 0.5;
 
-        if (dist > Cloth.config.tear_distance) {
+        if (dist > ClothEngine.config.tear_distance) {
             this.p1.remove_constraint(this);
         }
 
@@ -27,12 +27,12 @@ Cloth.Line.prototype = function (p1, p2) {
     };
 
     this.draw = function () {
-        var ctx = Cloth.config.ctx;
+        var ctx = ClothEngine.config.ctx;
 
         ctx.moveTo(this.p1.x, this.p1.y);
         ctx.lineTo(this.p2.x, this.p2.y);
     };
 
-    return new Cloth.Line();
+    return new ClothEngine.Line();
 
 };

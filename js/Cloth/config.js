@@ -1,7 +1,7 @@
-var Cloth = window.Cloth || {};
+var ClothEngine = window.ClothEngine || {};
 
 // settings
-Cloth.config = function () {
+ClothEngine.config = function () {
     "use strict";
     var physics_accuracy = 3,
         mouse_influence = 20,

@@ -26,8 +26,8 @@ module.exports = function (grunt) {
             gui: {
                 files: {
                     '/generated/js/project_gui.min.js': [
-                        '/js/*.js',
-                        '/js/Cloth/*.js'
+                        '/js/main.js',
+                        '/js/ClothEngine/*.js'
                     ]
                 }
             },

@@ -1,7 +1,6 @@
 var ClothEngine = ClothEngine || {};
 
 $(function () {
-    'use strict';
 
     ClothEngine.config.canvas = $('#c');
     ClothEngine.config.canvas.width = 560;
@@ -10,4 +9,4 @@ $(function () {
     ClothEngine.ClothManager.initialize(ClothEngine.config.canvas,
                                         ClothEngine.config.ctx);
 
-})();
+});

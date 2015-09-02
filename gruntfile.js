@@ -9,31 +9,35 @@ module.exports = function (grunt) {
             },
             scripts: {
                 files: [
-                    '/js/*.js',
-                    '/js/Cloth/*.js'
+                    'js/*.js',
+                    'js/ClothEngine/*.js'
                 ],
                 tasks: ['uglify:gui']
             },
             styles: {
-                files: ['/less/*.less'],
+                files: ['less/*.less'],
                 tasks: ['less']
             }
         },
         uglify: {
             options: {
-                beautify: true
+                beautify: false
             },
             gui: {
                 files: {
-                    '/generated/js/project_gui.min.js': [
-                        '/js/main.js',
-                        '/js/ClothEngine/*.js'
+                    'generated/js/project_gui.min.js': [
+                        'js/ClothEngine/config.js',
+                        'js/ClothEngine/Point.js',
+                        'js/ClothEngine/Line.js',
+                        'js/ClothEngine/cloth.js',
+                        'js/ClothEngine/ClothManager.js',
+                        'js/main.js'
                     ]
                 }
             },
             libs: {
                 files: {
-                    '/generated/js/project_libs.min.js': [
+                    'generated/js/project_libs.min.js': [
                         'node_modules/jquery/dist/jquery.min.js'
                     ]
                 }
@@ -51,8 +55,8 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    '/generated/css/project_gui.min.css': [
-                        '/less/*.less'
+                    'generated/css/project_gui.min.css': [
+                        'less/*.less'
                     ]
                 }
             }

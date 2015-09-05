@@ -1,56 +1,61 @@
 var ClothEngine = ClothEngine || {};
 
-ClothEngine.Cloth.prototype = function () {
-    'use strict';
-    this.points = [];
+ClothEngine.Cloth = function () {
 
-    var start_x = ClothEngine.config.canvas.width / 2 - ClothEngine.config.cloth_width * ClothEngine.config.spacing
+    var Cloth = function () {
+        this.points = [];
 
-    for (var y = 0; y <= ClothEngine.config.cloth_height; y++) {
-        for (var x = 0; x <= ClothEngine.config.cloth_width; x++) {
-            var p = new Point(ClothEngine.config.start_x + x * ClothEngine.config.spacing, ClothEngine.config.start_y + y * ClothEngine.config.spacing);
+        var start_x = ClothEngine.config.canvas.width / 2 - ClothEngine.config.cloth_width * ClothEngine.config.spacing
 
-            if (x !== 0) {
-                p.attach(this.points[this.points.length - 1]);
+        for (var y = 0; y <= ClothEngine.config.cloth_height; y++) {
+            for (var x = 0; x <= ClothEngine.config.cloth_width; x++) {
+                var p = new Point(ClothEngine.config.start_x + x * ClothEngine.config.spacing, ClothEngine.config.start_y + y * ClothEngine.config.spacing);
+
+                if (x !== 0) {
+                    p.attach(this.points[this.points.length - 1]);
+                }
+                if ( y === 0) {
+                    p.pin(p.x, p.y);
+                }
+                if ( y !== 0) {
+                    p.attach(this.points[x + (y - 1) * (ClothEngine.config.cloth_width + 1)]);
+                }
+
+                this.points.push(p);
             }
-            if ( y === 0) {
-                p.pin(p.x, p.y);
-            }
-            if ( y !== 0) {
-                p.attach(this.points[x + (y - 1) * (ClothEngine.config.cloth_width + 1)]);
-            }
-
-            this.points.push(p);
-        }
-    }
-
-    this.update = function () {
-        var i = ClothEngine.config.physics_accuracy;
-
-        while(i) {
-            var p = this.points.length;
-            while(p) {
-                this.points[p].resolve_constraints();
-                p -= 1;
-            }
-            i -= 1;
-        }
-        i = this.points.length;
-        while(i) {
-            this.points[i].update(0.016);
-            i--;
         }
     };
 
-    this.draw = function () {
-        ClothEngine.config.ctx.beginPath();
+    Cloth.prototype = {
 
-        var i = ClothEngine.config.cloth.points.length;
-        while(i) {
-            ClothEngine.config.cloth.points[i].draw();
-            i -= 1;
-        }
+        update: function () {
+            var i = ClothEngine.config.physics_accuracy;
 
-        ClothEngine.config.ctx.stroke();
+            while(i) {
+                var p = this.points.length;
+                while(p) {
+                    this.points[p].resolve_constraints();
+                    p -= 1;
+                }
+                i -= 1;
+            }
+            i = this.points.length;
+            while(i) {
+                this.points[i].update(0.016);
+                i--;
+            }
+        },
+        draw: function () {
+            ClothEngine.config.ctx.beginPath();
+
+            var i = ClothEngine.config.cloth.points.length;
+            while(i) {
+                ClothEngine.config.cloth.points[i].draw();
+                i -= 1;
+            }
+
+            ClothEngine.config.ctx.stroke();
+        };
     };
+    return new Cloth();
 };

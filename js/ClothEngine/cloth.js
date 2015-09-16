@@ -4,8 +4,8 @@ ClothEngine.Cloth = function () {
 
     var Cloth = function () {
         this.points = [];
-
-        var start_x = ClothEngine.config.canvas.width / 2 - ClothEngine.config.cloth_width * ClothEngine.config.spacing
+        var canvas = ClothEngine.config.canvas;
+        var start_x = canvas.width / 2 - ClothEngine.config.cloth_width * ClothEngine.config.spacing/2
 
         for (var y = 0; y <= ClothEngine.config.cloth_height; y++) {
             for (var x = 0; x <= ClothEngine.config.cloth_width; x++) {
@@ -55,7 +55,7 @@ ClothEngine.Cloth = function () {
             }
 
             ClothEngine.config.ctx.stroke();
-        };
+        }
     };
     return new Cloth();
-};
+}();

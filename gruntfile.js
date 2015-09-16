@@ -21,17 +21,12 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                beautify: false
+                beautify: true
             },
             gui: {
                 files: {
                     'generated/js/project_gui.min.js': [
-                        'js/ClothEngine/config.js',
-                        'js/ClothEngine/Point.js',
-                        'js/ClothEngine/Line.js',
                         'js/ClothEngine/cloth.js',
-                        'js/ClothEngine/ClothManager.js',
-                        'js/main.js'
                     ]
                 }
             },

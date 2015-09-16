@@ -1,42 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<head>
     <title>Tearable Cloth</title>
 
-    <link rel="stylesheet" type="text/css" href="../generated/css/project_gui.min.css" />
-</head>
+    <link rel="stylesheet" href="../generated/css/project_libs.min.css">
+    <link rel="stylesheet" href="../generated/css/project_gui.min.css">
+  </head>
 
-<body>
-
-    <canvas id="c"></canvas>
-
-    <div id="info">
-        <div id="top">
-            <a id="close" href="">close</a>
-        </div>
-        <p>
-            <br>- Tear the cloth with your mouse.
-            <br>
-            <br>- Right click and drag to cut the cloth
-            <br>
-            <br>- Reduce physics_accuracy if it's laggy.
-            <br>
-            <br>
-        </p>
-    </div>
-
-
-
-    <script type="text/javascript">
-        document.getElementById('close').onmousedown = function(e) {
-            e.preventDefault();
-            document.getElementById('info').style.display = 'none';
-            return false;
-        };
-    </script>
+  <body>
+      <div class="row">
+          <div class="container">
+              <h2> Tearable Cloth Engine Example</h2>
+          </div>
+      </div>
+      <div class="row">
+          <div class="contaier">
+            <canvas id="c"></canvas>
+          </div>
+      </div>
+      <footer class="footer">
+          <div class="container">
+              <p class="text-muted">Demo Tearable Cloth Engine created by <b>Mihai Visuian</b></p>
+          </div>
+      </footer>
+</body>
     <script type="text/javascript" src="../generated/js/project_libs.min.js"></script>
     <script type="text/javascript" src="../generated/js/project_gui.min.js"></script>
-</body>
-
 </html>

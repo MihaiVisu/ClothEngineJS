@@ -21,11 +21,11 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                beautify: true
+                beautify: false
             },
             gui: {
                 files: {
-                    'generated/js/project_gui.min.js': [
+                    'generated/js/project_gui.min.js':[
                         'js/ClothEngine/cloth.js',
                     ]
                 }

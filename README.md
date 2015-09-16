@@ -1,5 +1,3 @@
 # ClothEngineJS
-This is going to represent my attempt of building my own Cloth Engine using Javascript, JQuery and a bit of CSS.
-
-----
-In development..
+This is my first version of a tearable cloth engine built using javascript and HTML5 canvas + a bit of bootstrap for the interface.
+The javascript files are minified in one file and the less files are compiled via the Gruntfile in the project.

@@ -263,7 +263,7 @@ function start() {
     boundsx = canvas.width - 1;
     boundsy = canvas.height - 1;
 
-    ctx.strokeStyle = '#888';
+    ctx.strokeStyle = 'rgb(28, 190, 165)';
     cloth = new Cloth();
     update();
 }
@@ -277,4 +277,8 @@ window.onload = function () {
     canvas.height = 350;
 
     start();
+    
+    $('#redrawer-container').find('button').on('click', function() {
+        cloth = new Cloth();
+    });
 };

@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     new (require('less-plugin-autoprefix'))({
                         browsers: ["last 2 versions"]
                     }),
-                    new (require('less-plugin-clean-css'))
+                    new (require('less-plugin-clean-css'))()
                 ]
             },
             gui: {

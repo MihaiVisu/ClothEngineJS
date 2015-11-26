@@ -68,8 +68,8 @@ Point.prototype.update = function (delta) {
     this.add_force(0, gravity);
 
     delta *= delta;
-    nx = this.x + ((this.x - this.px) * .99) + ((this.vx / 2) * delta);
-    ny = this.y + ((this.y - this.py) * .99) + ((this.vy / 2) * delta);
+    nx = this.x + ((this.x - this.px) * 0.99) + ((this.vx / 2) * delta);
+    ny = this.y + ((this.y - this.py) * 0.99) + ((this.vy / 2) * delta);
 
     this.px = this.x;
     this.py = this.y;
@@ -77,7 +77,7 @@ Point.prototype.update = function (delta) {
     this.x = nx;
     this.y = ny;
 
-    this.vy = this.vx = 0
+    this.vy = this.vx = 0;
 };
 
 Point.prototype.draw = function () {
@@ -90,7 +90,7 @@ Point.prototype.draw = function () {
 
 Point.prototype.resolve_constraints = function () {
 
-    if (this.pin_x != null && this.pin_y != null) {
+    if (this.pin_x !== null && this.pin_y !== null) {
 
         this.x = this.pin_x;
         this.y = this.pin_y;
@@ -187,9 +187,15 @@ var Cloth = function () {
 
             var p = new Point(start_x + x * spacing, start_y + y * spacing);
 
-            x != 0 && p.attach(this.points[this.points.length - 1]);
-            y == 0 && p.pin(p.x, p.y);
-            y != 0 && p.attach(this.points[x + (y - 1) * (cloth_width + 1)])
+            if (x) {
+                p.attach(this.points[this.points.length - 1]);
+            }
+            if (!y) {
+                p.pin(p.x, p.y);
+            }
+            if (y) {
+                p.attach(this.points[x + (y - 1) * (cloth_width + 1)]);
+            }
 
             this.points.push(p);
         }
@@ -206,7 +212,7 @@ Cloth.prototype.update = function () {
     }
 
     i = this.points.length;
-    while (i--) this.points[i].update(.016);
+    while (i--) this.points[i].update(0.016);
 };
 
 Cloth.prototype.draw = function () {
@@ -236,8 +242,8 @@ function start() {
         mouse.px = mouse.x;
         mouse.py = mouse.y;
         var rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left,
-        mouse.y = e.clientY - rect.top,
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
         mouse.down = true;
         e.preventDefault();
     };
@@ -251,8 +257,8 @@ function start() {
         mouse.px = mouse.x;
         mouse.py = mouse.y;
         var rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left,
-        mouse.y = e.clientY - rect.top,
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
         e.preventDefault();
     };
 
@@ -277,7 +283,7 @@ window.onload = function () {
     canvas.height = 350;
 
     start();
-    
+
     $('#redrawer-container').find('button').on('click', function() {
         cloth = new Cloth();
     });
